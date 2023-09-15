@@ -21,14 +21,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/admins_login', [App\Http\Controllers\AdminsController::class, 'admins_login'])->name('admins_login');
-Route::post('/admins_login', [App\Http\Controllers\AdminsController::class, 'admins_login'])->name('admins_login');
+Route::view('/admin/login', 'admin/login');
+Route::post('/admin/login', [App\Http\Controllers\admin\LoginController::class, 'login']);
+Route::post('admin/logout', [App\Http\Controllers\admin\LoginController::class,'logout']);
+Route::view('/admin/register', 'admin/register');
+Route::post('/admin/register', [App\Http\Controllers\admin\RegisterController::class, 'register']);
+Route::view('/admin/home', 'admin/home')->middleware('auth:admin');
 
-Route::get('/admins_resister', [App\Http\Controllers\AdminsController::class, 'admins_resister'])->name('admins_resister');
-Route::post('/admins_resister', [App\Http\Controllers\AdminsController::class, 'admins_resister'])->name('admins_resister');
-
-Route::get('/admins_top', [App\Http\Controllers\AdminsController::class, 'admins_top'])->name('admins_top');
-
-Route::get('/admins_banner', [App\Http\Controllers\AdminsController::class, 'admins_banner'])->name('admins_banner');
-
-Route::get('/users_class', [App\Http\Controllers\UsersController::class, 'users_class'])->name('users_class');

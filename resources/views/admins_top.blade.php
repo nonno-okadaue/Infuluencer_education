@@ -13,7 +13,6 @@
                 <p>ユーザーネーム：</p>
                 <p>メールアドレス：</p>
                 </div>
-
         </div>
     </div>
 @endsection
